@@ -12,6 +12,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.16.0
         with:
           channel-id: 'C02QC1HUDHT'
-          slack-message: 'A new PR is available for review.'
+          slack-message: 'A new PR is available for review. \n ${{github.event.number}} or ${{github.event.pull_request.html}}'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACKSECRETNOFITYKEY }}
