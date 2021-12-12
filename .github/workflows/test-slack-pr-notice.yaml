@@ -1,0 +1,17 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  notify-slack-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          channel-id: 'C02QC1HUDHT'
+          slack-message: 'A new PR is available for review.'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACKSECRETNOFITYKEY }}
