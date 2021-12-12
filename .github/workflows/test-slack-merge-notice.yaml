@@ -14,6 +14,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.16.0
         with:
           channel-id: ${{secrets.SLACK_NOTIFY_MERGE_CHANNEL}}
-          slack-message: "Merge of changes completed. \n${{github.event.compare}}"
+          slack-message: ":white_check_mark: Merge of changes completed. \n${{github.event.compare}}"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACKSECRETNOFITYKEY }}
