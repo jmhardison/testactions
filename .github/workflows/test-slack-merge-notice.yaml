@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/**'
 jobs:
   notify-slack-merge:
     runs-on: ubuntu-latest
@@ -11,7 +13,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.16.0
         with:
-          channel-id: 'C02QC1HUDHT'
+          channel-id: ${{secrets.SLACK_NOTIFY_MERGE_CHANNEL}}
           slack-message: "Merge of changes completed. \n${{github.event.compare}}"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACKSECRETNOFITYKEY }}
