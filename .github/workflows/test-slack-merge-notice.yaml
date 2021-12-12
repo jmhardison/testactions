@@ -4,14 +4,14 @@ on:
     branches:
       - main
 jobs:
-  notify-slack-pr:
+  notify-slack-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Slack Channel of PR
+      - name: Notify Slack Channel of Merge
         id: slack
         uses: slackapi/slack-github-action@v1.16.0
         with:
           channel-id: 'C02QC1HUDHT'
-          slack-message: 'A new PR is available for review. "\n"${{github.event.pull_request.html_url}}'
+          slack-message: 'Merge of changes completed. "\n"${{github.event.compare}}'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACKSECRETNOFITYKEY }}
